@@ -19,7 +19,9 @@ class TodoItem extends Component {
       <div className={classNames('todo-item', {
         'todo-item__done': item.isComplete
       })}>
-        <img onClick={onItemClicked} className="check" src={url} witdh={32} height={32} alt="check" />
+        <img src={url} witdh={32} height={32} alt="check"
+          className="check"
+          onClick={onItemClicked} />
         <span>{item.title}</span>
       </div>
     )
@@ -30,8 +32,9 @@ TodoItem.propTypes = {
   item: PropTypes.shape({
     title: PropTypes.string.isRequired,
     isComplete: PropTypes.bool.isRequired
-  }),
-  onItemClicked: PropTypes.func.isRequired
+  }).isRequired,
+  /** Call function: { this.onItemClicked(item) } */
+  onItemClicked: PropTypes.func
 };
 
 export default TodoItem;
